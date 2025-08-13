@@ -1,4 +1,4 @@
-import type { User } from '../../../../backend/src/entities/User';
+import type { User } from '../types/user';
 import { trpc } from '../trpc';
 import { writable } from 'svelte/store';
 

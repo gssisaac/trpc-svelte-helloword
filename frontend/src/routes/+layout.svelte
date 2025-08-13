@@ -14,7 +14,12 @@
     <div class="container mx-auto px-4 py-4 flex justify-between items-center">
       <a href="/" class="text-xl font-bold">tRPC Svelte App</a>
       
-      {#if $auth.isAuthenticated && $auth.user}
+      {#if $auth.isLoading}
+        <div class="flex items-center gap-2">
+          <div class="w-5 h-5 border-2 border-primary border-t-transparent rounded-full animate-spin"></div>
+          <span>Loading...</span>
+        </div>
+      {:else if $auth.isAuthenticated && $auth.user}
         <div class="flex items-center gap-4">
           <span>Welcome, {$auth.user.name || $auth.user.email}</span>
           <Button variant="outline" on:click={() => auth.logout()}>Logout</Button>
